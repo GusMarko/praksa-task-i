@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: praksa-task-api-deployment-{{ .Values.env }}
+  namespace: {{ .Values.namespace }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: praksa-task-api-{{ .Values.env }}
+  template:
+    metadata:
+      labels:
+        app: praksa-task-api-{{ .Values.env }}
+    spec:
+      containers:
+        - name: praksa-task-api-{{ .Values.env }}
+          image: "{{ .Values.image.repository }}:{{ .Values.env }}-{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.service.port }}
+          resources:
+            requests:
+              memory: {{ .Values.resources.requests.memory }}
+              cpu: {{ .Values.resources.requests.cpu }}
+            limits:
+              memory: {{ .Values.resources.limits.memory }}
+              cpu: {{ .Values.resources.limits.cpu }}
+          volumeMounts:
+            - name: storage
+              mountPath: {{ .Values.persistence.mountPath }}
+      volumes:
+        - name: storage
+          persistentVolumeClaim:
+            claimName: praksa-task-brojac-pvc-{{ .Values.env }}

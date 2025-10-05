@@ -1,0 +1,27 @@
+replicaCount: 2
+
+env: dev
+
+image:
+  repository: ghcr.io/gusmarko/praksa-task-api/praksa-task-api
+  tag: latest
+  pullPolicy: Always
+
+service:
+  type: ClusterIP
+  port: 8080
+
+resources:
+  limits:
+    cpu: 200m
+    memory: 128Mi
+  requests:
+    cpu: 50m
+    memory: 64Mi
+
+persistence:
+  size: 1Gi
+  accessMode: ReadWriteOnce
+  mountPath: /data
+
+namespace: praksa-task-dev

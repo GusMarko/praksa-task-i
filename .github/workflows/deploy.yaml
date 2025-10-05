@@ -1,0 +1,24 @@
+name: Apply Terraform Changes
+
+on:
+    push:
+        branches:
+            - main
+            - dev
+
+jobs:
+  buildAndDeploy:
+    runs-on: runner-infra
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Configure Terraform
+        uses: hashicorp/setup-terraform@v2
+
+      - name: Deploy Kubernetes resources
+        run: |
+          cd terraform-iac
+          terraform init
+          terraform plan -var-file="dev.tfvars"
+        #   terraform apply -auto-approve

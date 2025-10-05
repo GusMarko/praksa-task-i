@@ -1,0 +1,22 @@
+replicaCount: 2
+
+env: dev
+
+image:
+  repository: ghcr.io/gusmarko/praksa-task-ui/praksa-task-ui
+  tag: latest
+  pullPolicy: Always
+
+service:
+  type: ClusterIP
+  port: 3030
+
+resources:
+  limits:
+    cpu: 200m
+    memory: 128Mi
+  requests:
+    cpu: 50m
+    memory: 64Mi
+
+namespace: praksa-task-dev
