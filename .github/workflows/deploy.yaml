@@ -18,7 +18,7 @@ jobs:
         run: |
           Set-Location -Path "./terraform-iac"
           $env:PATH = "C:\Program Files\terraform;$env:PATH"
-          $env:ENV = ${{ github.ref_name }}
+          $env:ENV = "${{ github.ref_name }}"
           $env:DESTINATION = Join-Path -Path (Get-Location).Path -ChildPath "terrafrom.tfstate"
           if (Test-Path -Path c -PathType Leaf) {
             Copy-Item -Path "C:\Users\marko.gusic\git\terraform-states\dev" -Destination $DESTINATION -Force
