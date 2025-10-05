@@ -24,6 +24,5 @@ jobs:
             Copy-Item -Path "C:\Users\marko.gusic\git\terraform-states\dev\terraform.tfstate" -Destination "./" -Force
           }
           terraform init
-          terraform plan -var-file="dev.tfvars"
           terraform apply -auto-approve -var-file="dev.tfvars" 
           Copy-Item -Path "./terraform.tfstate" -Destination "C:\Users\marko.gusic\git\terraform-states\dev\terraform.tfstate" -Force
