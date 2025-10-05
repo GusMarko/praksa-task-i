@@ -18,11 +18,11 @@ jobs:
         run: |
           Set-Location -Path "./terraform-iac"
           $env:PATH = "C:\Program Files\terraform;$env:PATH"
-          $env:ENV = "${{ github.ref_name }}"
+          $branchName = "${{ github.ref_name }}"
           # $env:DESTINATION = Join-Path -Path (Get-Location).Path -ChildPath "terrafrom.tfstate"
-          if (Test-Path -Path "C:\Users\marko.gusic\git\terraform-states\dev\terraform.tfstate" -PathType Leaf) {
-            Copy-Item -Path "C:\Users\marko.gusic\git\terraform-states\dev\terraform.tfstate" -Destination "./" -Force
+          if (Test-Path -Path "C:\Users\marko.gusic\git\terraform-states\$branchName\terraform.tfstate" -PathType Leaf) {
+            Copy-Item -Path "C:\Users\marko.gusic\git\terraform-states\$branchName\terraform.tfstate" -Destination "./" -Force
           }
           terraform init
-          terraform apply -auto-approve -var-file="dev.tfvars" 
-          Copy-Item -Path "./terraform.tfstate" -Destination "C:\Users\marko.gusic\git\terraform-states\dev\terraform.tfstate" -Force
+          terraform apply -auto-approve -var-file="$branchName.tfvars" 
+          Copy-Item -Path "./terraform.tfstate" -Destination "C:\Users\marko.gusic\git\terraform-states\$branchName\terraform.tfstate" -Force
