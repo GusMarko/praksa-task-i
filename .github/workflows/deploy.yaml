@@ -1,0 +1,28 @@
+name: Apply Terraform Changes
+
+on:
+    push:
+        branches:
+            - main
+            - dev
+
+jobs:
+  buildAndDeploy:
+    runs-on: runner-infra
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Deploy Kubernetes resources
+        shell: powershell
+        run: |
+          Set-Location -Path "./terraform-iac"
+          $env:PATH = "C:\Program Files\terraform;$env:PATH"
+          $env:ENV = "${{ github.ref_name }}"
+          # $env:DESTINATION = Join-Path -Path (Get-Location).Path -ChildPath "terrafrom.tfstate"
+          if (Test-Path -Path "C:\Users\marko.gusic\git\terraform-states\dev\terraform.tfstate" -PathType Leaf) {
+            Copy-Item -Path "C:\Users\marko.gusic\git\terraform-states\dev\terraform.tfstate" -Destination "./" -Force
+          }
+          terraform init
+          terraform apply -auto-approve -var-file="dev.tfvars" 
+          Copy-Item -Path "./terraform.tfstate" -Destination "C:\Users\marko.gusic\git\terraform-states\dev\terraform.tfstate" -Force

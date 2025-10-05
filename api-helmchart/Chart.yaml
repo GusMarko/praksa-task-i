@@ -1,0 +1,5 @@
+apiVersion: v2
+name: api-helmchart
+description: helm chart for api
+version: 0.1.0
+appVersion: "1.0.0"

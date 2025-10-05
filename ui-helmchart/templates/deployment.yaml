@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: praksa-task-ui-deployment-{{ .Values.env }}
+  namespace: {{ .Values.namespace }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: praksa-task-ui-{{ .Values.env }}
+  template:
+    metadata:
+      labels:
+        app: praksa-task-ui-{{ .Values.env }}
+    spec:
+      containers:
+        - name: praksa-task-ui-{{ .Values.env }}
+          image: "{{ .Values.image.repository }}:{{ .Values.env }}-{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.service.port }}
+          resources:
+            requests:
+              cpu: {{ .Values.resources.requests.cpu }}
+              memory: {{ .Values.resources.requests.memory }}
+            limits:
+              cpu: {{ .Values.resources.limits.cpu }}
+              memory: {{ .Values.resources.limits.memory }}
