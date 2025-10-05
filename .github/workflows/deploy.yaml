@@ -5,6 +5,8 @@ on:
         branches:
             - main
             - dev
+            - qa
+            - uat
 
 jobs:
   buildAndDeploy:

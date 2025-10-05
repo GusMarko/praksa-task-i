@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: praksa-task-api-deployment-{{ .Values.env }}
+  name: {{ .Values.name}}-deployment-{{ .Values.env }}
   namespace: {{ .Values.namespace }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: praksa-task-api-{{ .Values.env }}
+      app: {{ .Values.name}}-{{ .Values.env }}
   template:
     metadata:
       labels:
-        app: praksa-task-api-{{ .Values.env }}
+        app: {{ .Values.name}}-{{ .Values.env }}
     spec:
       containers:
-        - name: praksa-task-api-{{ .Values.env }}
+        - name: {{ .Values.name}}-{{ .Values.env }}
           image: "{{ .Values.image.repository }}:{{ .Values.env }}-{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:

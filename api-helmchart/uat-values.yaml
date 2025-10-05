@@ -1,6 +1,6 @@
 replicaCount: 5
 
-env: main
+env: uat
 
 name: praksa-task-api
 
@@ -11,7 +11,7 @@ image:
 
 service:
   type: ClusterIP
-  port: 8000
+  port: 8002
 
 resources:
   limits:
@@ -27,4 +27,4 @@ persistence:
   accessMode: ReadWriteOnce
   mountPath: /data
 
-namespace: praksa-task-main
+namespace: praksa-task-uat
