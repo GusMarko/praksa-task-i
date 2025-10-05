@@ -2,6 +2,8 @@ replicaCount: 2
 
 env: dev
 
+name: praksa-task-ui
+
 image:
   repository: ghcr.io/gusmarko/praksa-task-ui/praksa-task-ui
   tag: latest
