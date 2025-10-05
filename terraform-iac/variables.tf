@@ -1,6 +1,6 @@
 variable "kubeconfig_path" {
   type    = string
-  default = "~/.kube/config"
+  default = "C:\Users\marko.gusic\.kube\config"
 }
 
 variable "environment" {
