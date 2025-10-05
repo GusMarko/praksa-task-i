@@ -16,8 +16,13 @@ jobs:
       - name: Deploy Kubernetes resources
         shell: powershell
         run: |
+          Set-Location -Path "./terraform-iac"
           $env:PATH = "C:\Program Files\terraform;$env:PATH"
-          Set-Location -Path "./terraform-iac" 
+          $env:ENV = ${{ github.ref_name }}
+          $env:DESTINATION = Join-Path -Path (Get-Location).Path -ChildPath "terrafrom.tfstate"
+          if (Test-Path -Path c -PathType Leaf) {
+            Copy-Item -Path "C:\Users\marko.gusic\git\terraform-states\dev" -Destination $DESTINATION -Force
+          }
           terraform init
-          terraform plan -var-file="dev.tfvars"
-        #   terraform apply -auto-approve
+          terraform plan -var-file="dev.tfvars" 
+          Copy-Item -Path $DESTINATION -Destination "C:\Users\marko.gusic\git\terraform-states\dev" -Force
