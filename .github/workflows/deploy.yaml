@@ -13,6 +13,9 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
+      - name: Configure Terraform
+        uses: hashicorp/setup-terraform@v2
+
       - name: Deploy Kubernetes resources
         shell: powershell
         run: |
