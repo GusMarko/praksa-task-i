@@ -13,12 +13,10 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Configure Terraform
-        uses: hashicorp/setup-terraform@v2
-
       - name: Deploy Kubernetes resources
+        shell: powershell
         run: |
-          cd terraform-iac
+          Set-Location -Path "./terraform-iac" 
           terraform init
           terraform plan -var-file="dev.tfvars"
         #   terraform apply -auto-approve
