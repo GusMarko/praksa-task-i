@@ -11,7 +11,7 @@ jobs:
     runs-on: runner-infra
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       - name: Configure Terraform
         uses: hashicorp/setup-terraform@v2
