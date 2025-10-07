@@ -1,0 +1,12 @@
+env: uat
+namespace: praksa-task-uat
+
+api:
+  name: praksa-task-api
+  servicePort: 8002
+  host: api.uat.local
+
+ui:
+  name: praksa-uat-ui
+  servicePort: 3002
+  host: ui.uat.local

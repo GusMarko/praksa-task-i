@@ -1,0 +1,12 @@
+env: dev
+namespace: praksa-task-dev
+
+api:
+  name: praksa-task-api
+  servicePort: 8080
+  host: api.dev.local
+
+ui:
+  name: praksa-task-ui
+  servicePort: 3030
+  host: ui.dev.local

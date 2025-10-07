@@ -28,3 +28,13 @@ persistence:
   mountPath: /data
 
 namespace: praksa-task-uat
+
+
+ingress:
+  enabled: true
+  hosts:
+    - host: api.uat.local
+      paths:
+        - /
+        - /docs
+  tls: []
