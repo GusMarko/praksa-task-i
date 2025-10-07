@@ -1,6 +1,5 @@
 apiVersion: v2
-name: ingress-helmchart
-description: "ingress configuration helmchart"
+name: test-platform
 type: application
-version: 1.0.0
+version: 0.1.10
 appVersion: "1.0.0"
