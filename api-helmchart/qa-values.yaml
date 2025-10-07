@@ -27,11 +27,3 @@ persistence:
   mountPath: /data
 
 
-ingress:
-  enabled: true
-  hosts:
-    - host: api.qa.local
-      paths:
-        - /
-        - /docs
-  tls: []

@@ -29,11 +29,3 @@ persistence:
 namespace: praksa-task-dev
 
 
-ingress:
-  enabled: true
-  hosts:
-    - host: api.dev.local
-      paths:
-        - /
-        - /docs
-  tls: []
