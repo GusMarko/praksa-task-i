@@ -1,16 +1,23 @@
-env: dev
-namespace: praksa-task-dev
+namespace: test-dev
 appName: test
 ingress:
   enabled: true
-  class: nginx
+  className: nginx
 
-api:
-  name: praksa-task-api
-  port: 8080
-  host: api.dev.local
+  rules:
+    - host: test-ui-dev.local
+      path: /
+      service:
+        name: test-ui
+        port: 80
 
-ui:
-  name: praksa-task-ui
-  port: 3030
-  host: ui.dev.local
+    - host: test-api-dev.local
+      path: /
+      service:
+        name: test-api
+        port: 80
+
+persistence:
+  enabled: true
+  accessMode: ReadWriteMany
+  size: 1Gi

@@ -23,9 +23,11 @@ resource "helm_release" "ingress" {
   chart      = "${path.module}/../ingress-helmchart"
   namespace  = kubernetes_namespace.praksa_task.id
   values     = [file("${path.module}/../ingress-helmchart/${var.environment}-values.yaml")]
+  force_update      = true
 
   depends_on = [
     helm_release.api,
     helm_release.ui
   ]
 }
+
