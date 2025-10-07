@@ -1,3 +1,4 @@
+env: dev
 namespace: praksa-task-dev
 appName: test
 ingress:
