@@ -9,10 +9,10 @@ ingress:
       path: /
       service:
         name: praksa-task-ui
-        port: 3030
+        port: 80
 
     - host: api.dev.local
       path: /
       service:
         name: praksa-task-api
-        port: 8080
+        port: 80
