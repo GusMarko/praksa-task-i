@@ -1,4 +1,5 @@
 namespace: praksa-task-dev
+chart: ingress-helmchart
 ingress:
   className: nginx
 
