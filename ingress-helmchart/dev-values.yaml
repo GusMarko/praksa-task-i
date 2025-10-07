@@ -1,12 +1,15 @@
-env: dev
 namespace: praksa-task-dev
+appName: test
+ingress:
+  enabled: true
+  className: nginx
 
 api:
-  name: praksa-task-api
+  serviceName: praksa-task-api
   servicePort: 8080
   host: api.dev.local
 
 ui:
-  name: praksa-task-ui
+  serviceName: praksa-task-ui
   servicePort: 3030
   host: ui.dev.local
