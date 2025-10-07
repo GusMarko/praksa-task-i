@@ -1,0 +1,12 @@
+env: main
+namespace: praksa-task-main
+
+api:
+  name: praksa-task-api
+  servicePort: 8000
+  host: api.main.local
+
+ui:
+  name: praksa-task-ui
+  servicePort: 3000
+  host: ui.main.local

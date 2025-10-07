@@ -28,3 +28,12 @@ persistence:
   mountPath: /data
 
 namespace: praksa-task-main
+
+ingress:
+  enabled: true
+  hosts:
+    - host: api.main.local
+      paths:
+        - /
+        - /docs
+  tls: []

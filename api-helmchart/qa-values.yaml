@@ -25,3 +25,13 @@ persistence:
   size: 1Gi
   accessMode: ReadWriteOnce
   mountPath: /data
+
+
+ingress:
+  enabled: true
+  hosts:
+    - host: api.qa.local
+      paths:
+        - /
+        - /docs
+  tls: []
