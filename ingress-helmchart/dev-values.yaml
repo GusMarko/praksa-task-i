@@ -1,7 +1,5 @@
 namespace: praksa-task-dev
-appName: test
 ingress:
-  enabled: true
   className: nginx
 
   rules:
