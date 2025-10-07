@@ -9,5 +9,5 @@ spec:
     app: {{ .Values.name}}-{{ .Values.env }}
   ports:
     - name: http
-      port: {{ .Values.service.port }}
+      port: 80
       targetPort: {{ .Values.service.port }}
