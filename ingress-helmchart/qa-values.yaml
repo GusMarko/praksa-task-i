@@ -10,3 +10,6 @@ ui:
   name: praksa-task-ui
   servicePort: 3001
   host: ui.qa.local
+
+
+
