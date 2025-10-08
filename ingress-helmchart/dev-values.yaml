@@ -7,11 +7,11 @@ ingress:
     - host: ui.dev.local
       path: /
       service:
-        name: praksa-task-ui
+        name: praksa-task-ui-service-dev
         port: 80
 
     - host: api.dev.local
       path: /
       service:
-        name: praksa-task-api
+        name: praksa-task-api-service-dev
         port: 80
