@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: praksa-task-api-service-{{ .Values.env }}
+  name: {{ .Values.name}}-service-{{ .Values.env }}
   namespace: {{ .Values.namespace }}
 spec:
   type: {{ .Values.service.type }}
   selector:
-    app: praksa-task-api-{{ .Values.env }}
+    app: {{ .Values.name}}-{{ .Values.env }}
   ports:
     - name: http
       port: {{ .Values.service.port }}

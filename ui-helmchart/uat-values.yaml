@@ -1,6 +1,6 @@
 replicaCount: 5
 
-env: main
+env: uat
 
 name: praksa-task-ui
 
@@ -10,7 +10,7 @@ image:
   pullPolicy: Always
 service:
   type: ClusterIP
-  port: 3000   
+  port: 3002 
 
 resources:
   limits:
@@ -20,4 +20,4 @@ resources:
     cpu: 100m
     memory: 128Mi
 
-namespace: praksa-task-main
+namespace: praksa-task-uat
