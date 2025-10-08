@@ -26,7 +26,7 @@ jobs:
       - name: Select or create workspace
         shell: powershell
         run: |
-          $ws = "${{ github.ref_name }}"
+          $ws = "${{ github.base_ref }}"
           terraform workspace select $ws
           if (-not $?) {
             terraform workspace new $ws
