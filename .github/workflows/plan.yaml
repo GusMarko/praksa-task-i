@@ -26,6 +26,7 @@ jobs:
       - name: Select or create workspace
         shell: powershell
         run: |
+          $env:PATH = "C:\Program Files\Terraform;$env:PATH"
           Set-Location -Path "./terraform-iac"
           $ws = "${{ github.base_ref }}"
           terraform workspace select $ws
@@ -37,6 +38,7 @@ jobs:
       - name: Plan tf changes
         shell: powershell
         run: |
+          $env:PATH = "C:\Program Files\Terraform;$env:PATH"
           Set-Location -Path "./terraform-iac"
           $branchName = "${{ github.base_ref }}"
           terraform plan -var-file="$branchName.tfvars" 
