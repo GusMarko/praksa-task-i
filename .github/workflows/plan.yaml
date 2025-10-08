@@ -19,6 +19,7 @@ jobs:
       - name: Terraform Init
         shell: powershell
         run: |
+          $env:PATH = "C:\Program Files\Terraform;$env:PATH"
           Set-Location -Path "./terraform-iac"
           terraform init
 
