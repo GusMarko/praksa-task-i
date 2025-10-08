@@ -20,12 +20,15 @@ jobs:
         uses: hashicorp/setup-terraform@v3
 
       - name: Terraform Init
+        shell: powershell
         run: |
+          Set-Location -Path "./terraform-iac"
           terraform init
 
       - name: Select or create workspace
         shell: powershell
         run: |
+          Set-Location -Path "./terraform-iac"
           $ws = "${{ github.base_ref }}"
           terraform workspace select $ws
           if (-not $?) {
