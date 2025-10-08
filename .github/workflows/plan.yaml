@@ -1,7 +1,8 @@
-name: Deploy Terraform Changes
+name: Plan Terraform Changes
 
 on:
-    push:
+    pull_request:
+        types: opened
         branches:
             - main
             - dev
@@ -34,10 +35,10 @@ jobs:
             terraform workspace select $ws
           }
 
-      - name: Deploy tf resources
+      - name: Plan tf changes
         shell: powershell
         run: |
           $env:PATH = "C:\Program Files\Terraform;$env:PATH"
           Set-Location -Path "./terraform-iac"
           $branchName = "${{ github.base_ref }}"
-          terraform apply -auto-approve -var-file="$branchName.tfvars" 
+          terraform plan -var-file="$branchName.tfvars" 

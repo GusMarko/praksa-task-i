@@ -1,4 +1,10 @@
 terraform {
+
+  backend "local" {
+            path= "terraform.tfstate"
+            workspace_dir= "C:\\Users\\marko.gusic\\git\\terraform.tfstate.d"
+  } 
+  
   required_version = ">= 1.3.0"
 
   required_providers {
