@@ -1,0 +1,17 @@
+namespace: praksa-task-dev
+chart: ingress-helmchart
+ingress:
+  className: nginx
+
+  rules:
+    - host: ui.dev.local
+      path: /
+      service:
+        name: praksa-task-ui-service-dev
+        port: 80
+
+    - host: api.dev.local
+      path: /
+      service:
+        name: praksa-task-api-service-dev
+        port: 80

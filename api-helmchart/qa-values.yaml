@@ -1,4 +1,4 @@
-replicaCount: 2
+replicaCount: 1
 
 env: qa
 
@@ -25,3 +25,5 @@ persistence:
   size: 1Gi
   accessMode: ReadWriteOnce
   mountPath: /data
+
+

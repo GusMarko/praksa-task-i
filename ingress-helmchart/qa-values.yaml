@@ -1,0 +1,15 @@
+env: qa
+namespace: praksa-task-qa
+
+api:
+  name: praksa-task-api
+  servicePort: 8001
+  host: api.qa.local
+
+ui:
+  name: praksa-task-ui
+  servicePort: 3001
+  host: ui.qa.local
+
+
+

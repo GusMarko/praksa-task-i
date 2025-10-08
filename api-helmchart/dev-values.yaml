@@ -1,4 +1,4 @@
-replicaCount: 2
+replicaCount: 1
 
 env: dev
 
@@ -11,7 +11,7 @@ image:
 
 service:
   type: ClusterIP
-  port: 8080
+  port: 80
 
 resources:
   limits:
@@ -27,3 +27,5 @@ persistence:
   mountPath: /data
 
 namespace: praksa-task-dev
+
+

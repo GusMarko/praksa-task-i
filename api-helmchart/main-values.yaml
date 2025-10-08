@@ -1,4 +1,4 @@
-replicaCount: 5
+replicaCount: 1
 
 env: main
 
@@ -28,3 +28,4 @@ persistence:
   mountPath: /data
 
 namespace: praksa-task-main
+
