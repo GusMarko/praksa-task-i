@@ -37,5 +37,5 @@ jobs:
         shell: powershell
         run: |
           Set-Location -Path "./terraform-iac"
-          $branchName = "${{ github.ref_name }}"
+          $branchName = "${{ github.base_ref }}"
           terraform plan -var-file="$branchName.tfvars" 
