@@ -13,10 +13,24 @@ spec:
       labels:
         app: {{ .Values.name}}-{{ .Values.env }}
     spec:
+      replicas: {{ .Values.replicaCount }}
       containers:
         - name: {{ .Values.name}}-{{ .Values.env }}
           image: "{{ .Values.image.repository }}:{{ .Values.env }}-{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          livenessProbe:
+            httpGet:
+              path: "/health"
+              port: {{ .Values.service.port }}
+              scheme: HTTP
+            initialDelaySeconds: 5
+            timeoutSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: "/health"
+              port: {{ .Values.service.port }}
+            initialDelaySeconds: 5
+            periodSeconds: 5
           ports:
             - containerPort: {{ .Values.service.port }}
           resources:
