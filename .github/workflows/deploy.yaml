@@ -40,4 +40,4 @@ jobs:
           $env:PATH = "C:\Program Files\Terraform;$env:PATH"
           Set-Location -Path "./terraform-iac"
           $branchName = "${{ github.ref_name }}"
-          terraform destroy -auto-approve -var-file="$branchName.tfvars" 
+          terraform apply -auto-approve -var-file="$branchName.tfvars" 
