@@ -18,7 +18,7 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.env }}-{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
-            - containerPort: {{ .Values.service.port }}
+            - containerPort: {{ .Values.service.targetPort }}
           resources:
             requests:
               cpu: {{ .Values.resources.requests.cpu }}
