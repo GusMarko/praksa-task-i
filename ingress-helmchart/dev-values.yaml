@@ -11,7 +11,7 @@ ingress:
         port: 80
 
     - host: api.dev.local
-      path: /
+      path: /api
       service:
         name: praksa-task-api-service-dev
         port: 80
