@@ -9,6 +9,5 @@ spec:
   ports:
     - name: http
       port: 80
-      targetPort: 3030
-      nodePort: 30000 
+      targetPort: 80
   type: {{ .Values.service.type}}
