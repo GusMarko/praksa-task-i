@@ -8,24 +8,15 @@ metadata:
 spec:
   ingressClassName: {{ .Values.ingress.className }}
   rules:
-  - host: ui.dev.local
+  {{- range .Values.ingress.rules }}
+  - host: {{ .host }}
     http:
       paths:
-      - path: {{ default "/" .Values.ingress.rules.path1 }}
+      - path: {{ default "/" .path }}
         pathType: Prefix
         backend:
           service:
-            name: {{ .Values.ingress.rules.service1.name1 }}
+            name: {{ .service.name }}
             port:
-              number: {{ .Values.ingress.rules.service1.port1 }}
-
-  - host: api.dev.local
-    http:
-      paths:
-      - path: {{ default "/" .Values.ingress.rules.path2 }}
-        pathType: Prefix
-        backend:
-          service:
-            name: {{ .Values.ingress.rules.service2.name2 }}
-            port:
-              number: {{ .Values.ingress.rules.service2.port2 }}
+              number: {{ .service.port }}
+  {{- end }}
