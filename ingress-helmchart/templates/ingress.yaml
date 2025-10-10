@@ -11,21 +11,21 @@ spec:
   - host: ui.dev.local
     http:
       paths:
-      - path: {{ default "/" .Values.ingress.rules[0].path }}
+      - path: {{ default "/" .Values.ingress.rules.path1 }}
         pathType: Prefix
         backend:
           service:
-            name: {{ .Values.ingress.rules[0].service.name }}
+            name: {{ .Values.ingress.rules.service1.name1 }}
             port:
-              number: {{ .Values.ingress.rules[0].service.port }}
+              number: {{ .Values.ingress.rules.service1.port1 }}
 
   - host: api.dev.local
     http:
       paths:
-      - path: {{ default "/" .Values.ingress.rules[1].path }}
+      - path: {{ default "/" .Values.ingress.rules.path2 }}
         pathType: Prefix
         backend:
           service:
-            name: {{ .Values.ingress.rules[1].service.name }}
+            name: {{ .Values.ingress.rules.service2.name2 }}
             port:
-              number: {{ .Values.ingress.rules[1].service.port }}
+              number: {{ .Values.ingress.rules.service2.port2 }}
